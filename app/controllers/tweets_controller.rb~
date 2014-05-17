@@ -1,0 +1,23 @@
+class TweetsController < ApplicationController
+
+	def new
+		@tweet = Tweet.new
+	end
+
+	def create
+		@tweet = Tweet.new
+		@tweet.content = params[:tweet][:content]
+		@tweet.posted_on = DateTime.now
+		@tweet.user_id = 2
+		@tweet.user = User.find(2)
+
+		@tweet.save!
+
+		redirect_to :action => :index
+	end
+
+	def index
+		@tweets = User.find(2).tweets
+	end
+
+end

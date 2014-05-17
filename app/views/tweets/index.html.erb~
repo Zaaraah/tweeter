@@ -1,0 +1,6 @@
+<h1> Tweets for <%= User.find(2).username %></h1>
+<% @tweets.each do |tweet| %>
+	<div class="well">
+		<p><%= tweet.content %></p>
+	</div>
+<% end %>
